@@ -25,7 +25,7 @@ public class DepartmentServerImpl extends AbstractDaoImpl<Integer, DepartmentEnt
 	}
 
 public void test(){
-	
+	System.out.print("");
 	
 }
 	
