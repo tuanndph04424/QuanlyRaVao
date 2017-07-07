@@ -24,7 +24,10 @@ public class DepartmentServerImpl extends AbstractDaoImpl<Integer, DepartmentEnt
 		return department.findAll();
 	}
 
-
+public void test(){
+	
+	
+}
 	
 
 }
