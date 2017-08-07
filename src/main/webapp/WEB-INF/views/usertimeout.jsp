@@ -58,10 +58,9 @@
 							<th style="width: 170px">UserName</th>
 							<th style="width: 170px">Date</th>
 							<th style="width: 200px">Descriptions</th>
-
-
 							<th style="width: 100px">Create date</th>
-
+							<th style="width: 100px"></th>
+							<th style="width: 100px"></th>
 
 						</tr>
 					</thead>
@@ -124,30 +123,29 @@
 								<c:if test="${item.getStatus() == 0}">
 									<td>Not approved yet</td>
 								</c:if>
-								
-										
-										
-									
-							
-								
+
+
+
+
+
+
 								<c:if test="${item.getStatus() == 1 }">
 									<td>Agree
 										<p style="color: red;">${item.getManagerApproval().getName()}</p>
-										
+
 										<c:if test="${item.getType() == 3 }">
 										DirectorApproval:
 										<p style="color: red;">${item.getDirectorApproval().getName()}</p>
 										</c:if>
 									</td>
 								</c:if>
-								
+
 
 								<c:if test="${item.getStatus() == 2}">
-									<td>
-							No accept
+									<td>No accept
 										<p style="color: red;">${item.getManagerApproval().getName()}</p>
-										
-										
+
+
 									</td>
 								</c:if>
 
@@ -164,7 +162,10 @@
 									<td><p data-placement="top" data-toggle="tooltip"
 											title="Edit">
 											<button class="btn btn-primary btn-xs">
-												<a href="/QuanLyRaVao/home/updateYesManagertimeout/${item.getID()}" style="color: white;">Yes</a> <span class="glyphicon glyphicon-pencil"></span>
+												<a
+													href="/QuanLyRaVao/home/updateYesManagertimeout/${item.getID()}"
+													style="color: white;">Yes</a> <span
+													class="glyphicon glyphicon-pencil"></span>
 											</button>
 										</p></td>
 									<td><p data-placement="top" data-toggle="tooltip"

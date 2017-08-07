@@ -19,8 +19,6 @@
 
 
 
-
-
 		<div class="row">
 			<h2 class="text-center">UserTimeOut</h2>
 		</div>
@@ -29,7 +27,20 @@
 			<button class="btn btn-primary btn-xs" data-title="add"
 				data-toggle="modal" data-target="#add"
 				style="margin-left: 970px; margin-bottom: 10px; width: 150px">
-				<span>DownLoad</span>
+			
+				<a href="/QuanLyRaVao/home/Exprot/?type=xls"><i
+							class="fa fa-circle-o"></i> DownLoad</a>
+				
+				
+			</button>
+			<button class="btn btn-primary btn-xs" data-title="add"
+				data-toggle="modal" data-target="#add"
+				style="margin-left: 970px; margin-bottom: 10px; width: 150px">
+			
+				<a href="/QuanLyRaVao/home/Exprot/?type=pdf"><i
+							class="fa fa-circle-o"></i> DownLoad</a>
+				
+				
 			</button>
 			<div style="width: 1100px; margin-left: 20px">
 
@@ -47,7 +58,8 @@
 
 							<th style="width: 100px">Create date</th>
 
-
+							<th style="width: 100px"></th>
+							<th style="width: 100px"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -106,35 +118,34 @@
 
 
 
-						
+
 
 								<c:if test="${item.getStatus() == 0}">
 									<td>Not approved yet</td>
 								</c:if>
-								
-										
-										
-									
-							
-								
+
+
+
+
+
+
 								<c:if test="${item.getStatus() == 1 }">
 									<td>Agree
 										<p style="color: red;">${item.getManagerApproval().getName()}</p>
-										
+
 										<c:if test="${item.getType() == 3 }">
 										DirectorApproval:
 										<p style="color: red;">${item.getDirectorApproval().getName()}</p>
 										</c:if>
 									</td>
 								</c:if>
-								
+
 
 								<c:if test="${item.getStatus() == 2}">
-									<td>
-							No accept
+									<td>No accept
 										<p style="color: red;">${item.getManagerApproval().getName()}</p>
-										
-										
+
+
 									</td>
 								</c:if>
 
@@ -181,11 +192,11 @@
 			</div>
 			<!-- /.modal-content -->
 		</div>
-		
-	
 
 
 
-	
+
+
+
 	</tiles:putAttribute>
 </tiles:insertDefinition>

@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -21,6 +22,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.nguyentuan.Exprot.ExcelUserListReportView;
+import com.nguyentuan.Exprot.ItextPdfView;
 import com.nguyentuan.entity.DepartmentEntity;
 import com.nguyentuan.entity.LeavetypeEntity;
 import com.nguyentuan.entity.RolesEntity;
@@ -73,6 +77,7 @@ public class HomeController {
 		}
 		return Url;
 	}
+
 	// time in
 	@RequestMapping(value = "/timein", method = RequestMethod.GET)
 	public String addtimein1(ModelMap modelMap, HttpSession httpSession, HttpServletRequest request) {
@@ -237,7 +242,6 @@ public class HomeController {
 	}
 
 	// UserFcROles
-	
 
 	// show Fcroles showCustomer
 	@RequestMapping(value = "/showCustomer/{id}", method = RequestMethod.GET)
@@ -571,6 +575,29 @@ public class HomeController {
 	public String hello() {
 
 		return "index";
+	}
+
+	@RequestMapping(value = "/Exprot", method = RequestMethod.GET)
+	public ModelAndView userListReport(HttpServletRequest req, HttpServletResponse res) {
+
+		String typeReport = req.getParameter("type");
+		List<UserTimeOut> list = new ArrayList<UserTimeOut>();
+		list = userTimeOutServerImpl.findAll();
+		System.out.println(typeReport);
+		
+
+		if (typeReport != null && typeReport.equals("xls")) {
+			return new ModelAndView(new ExcelUserListReportView(), "UserTimeOutList", list);
+
+		} else if (typeReport != null && typeReport.equals("pdf")) {
+
+			return new ModelAndView(new ItextPdfView(), "UserTimeOutList", list);
+
+		}
+		
+		 Url = "redirect:/home/showUserTimeInOut";
+		return new ModelAndView("showUserTimeinOut", "userTimeOutServerImpl", list);
+
 	}
 
 }

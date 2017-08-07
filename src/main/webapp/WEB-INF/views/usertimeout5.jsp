@@ -52,7 +52,8 @@
 
 
 							<th style="width: 100px">Create date</th>
-
+							<th style="width: 100px"></th>
+							<th style="width: 100px"></th>
 
 						</tr>
 					</thead>
