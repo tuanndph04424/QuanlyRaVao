@@ -11,8 +11,7 @@ import com.nguyentuan.daologic.RolesDao;
 import com.nguyentuan.data.AbstractDaoImpl;
 import com.nguyentuan.entity.DepartmentEntity;
 import com.nguyentuan.entity.RolesEntity;
-
-import util.HibernateUtil;
+import com.nguyentuan.util.HibernateUtil;
 @Repository
 
 public class RolesDaoImpl extends AbstractDaoImpl<Integer, RolesEntity> implements RolesDao {

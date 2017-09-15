@@ -13,6 +13,7 @@ import javax.validation.Valid;
 
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -45,13 +46,21 @@ import com.nguyentuan.serverlogic.DepartmentServer;
 @RequestMapping(value = "/home")
 public class HomeController {
 	String Url = "";
-	UserServerIpml userServerIpml = new UserServerIpml();
-	DepartmentServerImpl departmentServerImpl = new DepartmentServerImpl();
-	RolesServerImpl rolesserverImpl = new RolesServerImpl();
-	UserRolesServerImpl userRolesServerImpl = new UserRolesServerImpl();
-	LeaveServerImpl leaveServerImpl = new LeaveServerImpl();
-	UserTimeOutServerImpl userTimeOutServerImpl = new UserTimeOutServerImpl();
-	UserFcRolesServerImpl checkUserRoles = new UserFcRolesServerImpl();
+	@Autowired
+	UserServerIpml userServerIpml;
+	@Autowired
+	DepartmentServerImpl departmentServerImpl;
+	@Autowired
+	RolesServerImpl rolesserverImpl;
+	@Autowired
+	UserRolesServerImpl userRolesServerImpl;
+	@Autowired
+	LeaveServerImpl leaveServerImpl;
+	@Autowired
+	UserTimeOutServerImpl userTimeOutServerImpl;
+	
+	@Autowired
+	UserFcRolesServerImpl checkUserRolessss ;
 
 	@RequestMapping(value = "/login")
 	public String index(ModelMap modelMap) {
@@ -169,7 +178,7 @@ public class HomeController {
 		String URL = "";
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 
 			modelMap.put("Userroles", new UserRolesEntity());
 			modelMap.put("user", userServerIpml.findAll());
@@ -189,7 +198,7 @@ public class HomeController {
 		String URL = "";
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 			userRolesServerImpl.save(userRolesEntity);
 			URL = "redirect:/home/userroles";
 		} else {
@@ -206,7 +215,7 @@ public class HomeController {
 		String URL = "";
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 			modelMap.put("editUserRoles", userRolesServerImpl.findById(Integer.parseInt(id)));
 			modelMap.put("Userroles", new UserRolesEntity());
 			modelMap.put("roleslist", rolesserverImpl.findAll());
@@ -231,7 +240,7 @@ public class HomeController {
 		String URL = "";
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 			userRolesServerImpl.delete(Integer.parseInt(id));
 			URL = "redirect:/home/userroles";
 		} else {
@@ -260,7 +269,7 @@ public class HomeController {
 		String URL = "";
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 			modelMap.put("Department1", new DepartmentEntity());
 			modelMap.put("departmentshow", departmentServerImpl.listDepartmentEntity());
 			URL = "Department";
@@ -283,7 +292,7 @@ public class HomeController {
 		} else {
 
 			List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
-			if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+			if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 				modelMap.put("Department1", new DepartmentEntity());
 				departmentServerImpl.save(departmentEntity);
 				URL = "redirect:/home/department";
@@ -303,7 +312,7 @@ public class HomeController {
 		String URL = "";
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 			departmentServerImpl.delete(Integer.parseInt(id));
 			URL = "redirect:/home/department";
 		} else {
@@ -320,7 +329,7 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
 
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 			modelMap.put("Department1", new DepartmentEntity());
 			modelMap.put("edit", departmentServerImpl.findById(Integer.parseInt(id)));
 			modelMap.put("departmentshow", departmentServerImpl.listDepartmentEntity());
@@ -348,7 +357,7 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
 
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 			modelMap.put("addrole", new RolesEntity());
 			modelMap.put("roleslist", rolesserverImpl.findAll());
 			URL = "Roles";
@@ -373,7 +382,7 @@ public class HomeController {
 			HttpSession session = request.getSession();
 			List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
 
-			if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+			if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 				rolesserverImpl.save(rolesEntity);
 				URL = "redirect:/home/roles";
 			} else {
@@ -392,7 +401,7 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
 
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 			rolesserverImpl.delete(Integer.parseInt(id));
 			URL = "redirect:/home/roles";
 		} else {
@@ -411,7 +420,7 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
 
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 			modelMap.put("addrole", new RolesEntity());
 			modelMap.put("roleslist", rolesserverImpl.findAll());
 			modelMap.put("edit", rolesserverImpl.findById(Integer.parseInt(id)));
@@ -437,7 +446,7 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
 
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 8) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 8) == true) {
 			map.put("userTimeOutServerImpl", userTimeOutServerImpl.findAll());
 			URL = "usertimeout";
 		} else {
@@ -461,7 +470,7 @@ public class HomeController {
 		String URL = "";
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 8) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 8) == true) {
 			map.put("userTimeOutServerImpl", userTimeOutServerImpl.findById(Integer.parseInt(id)));
 			map.put("usertimeout", new UserTimeOut());
 
@@ -486,7 +495,7 @@ public class HomeController {
 		String URL = "";
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 8) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 8) == true) {
 			timeOut.setManagerApproval(userEntity.get(0));
 			userTimeOutServerImpl.UpdateManagertimeout(timeOut);
 			URL = "redirect:/home/usertimeout";
@@ -504,7 +513,7 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
 
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 1) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 1) == true) {
 			map.put("userTimeOutServerImpl", userTimeOutServerImpl.findAll());
 			URL = "usertimeout5";
 		} else {
@@ -519,7 +528,7 @@ public class HomeController {
 		String URL = "";
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 1) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 1) == true) {
 			map.put("userTimeOutServerImpl", userTimeOutServerImpl.findById(Integer.parseInt(id)));
 			map.put("usertimeout", new UserTimeOut());
 			URL = "dialogDireCanneltimeout2";
@@ -543,7 +552,7 @@ public class HomeController {
 		String URL = "";
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
-		if (checkUserRoles.checkUserRolesManager(userEntity.get(0).getID(), 1) == true) {
+		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 1) == true) {
 			timeOut.setDirectorApproval(userEntity.get(0));
 			userTimeOutServerImpl.UpdateDirectorApprovaltimeout(timeOut);
 
@@ -584,7 +593,6 @@ public class HomeController {
 		List<UserTimeOut> list = new ArrayList<UserTimeOut>();
 		list = userTimeOutServerImpl.findAll();
 		System.out.println(typeReport);
-		
 
 		if (typeReport != null && typeReport.equals("xls")) {
 			return new ModelAndView(new ExcelUserListReportView(), "UserTimeOutList", list);
@@ -594,8 +602,8 @@ public class HomeController {
 			return new ModelAndView(new ItextPdfView(), "UserTimeOutList", list);
 
 		}
-		
-		 Url = "redirect:/home/showUserTimeInOut";
+
+		Url = "redirect:/home/showUserTimeInOut";
 		return new ModelAndView("showUserTimeinOut", "userTimeOutServerImpl", list);
 
 	}

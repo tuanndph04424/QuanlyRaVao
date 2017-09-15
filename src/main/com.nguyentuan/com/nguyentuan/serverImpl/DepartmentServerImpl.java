@@ -17,7 +17,7 @@ import com.nguyentuan.serverlogic.DepartmentServer;
 
 public class DepartmentServerImpl extends AbstractDaoImpl<Integer, DepartmentEntity>implements DepartmentServer  {
 	@Autowired
-	DepmentDaoIpml department= new DepmentDaoIpml();
+	DepmentDaoIpml department;
 
 	@Override
 	public List<DepartmentEntity> listDepartmentEntity() {		

@@ -13,8 +13,9 @@ import com.nguyentuan.serverlogic.UserFcRolesServer;
 @Service
 @Transactional
 public class UserFcRolesServerImpl extends AbstractDaoImpl<Integer, UserfcRolesEntity> implements UserFcRolesServer {
+	
 	@Autowired
-	UserFcRolesDaoImpl userfcRoles = new UserFcRolesDaoImpl();
+	UserFcRolesDaoImpl userfcRoles;
 
 	@Override
 	public boolean checkUserRolesManager(int ID, int RolesID) {

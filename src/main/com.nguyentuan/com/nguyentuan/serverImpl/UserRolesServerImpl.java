@@ -16,7 +16,7 @@ import com.nguyentuan.serverlogic.UserRolesServer;
 @Transactional
 public class UserRolesServerImpl extends AbstractDaoImpl<Integer, UserRolesEntity> implements UserRolesServer {
 @Autowired
-UserRolesDaoImpl userrolesDaoImpl = new UserRolesDaoImpl();
+UserRolesDaoImpl userrolesDaoImpl ;
 	
 	@Override
 	public List<UserRolesEntity> findAll() {

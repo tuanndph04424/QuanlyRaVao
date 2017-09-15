@@ -15,8 +15,7 @@ import com.nguyentuan.data.AbstractDaoImpl;
 import com.nguyentuan.entity.DepartmentEntity;
 import com.nguyentuan.entity.UserEntity;
 import com.nguyentuan.entity.UserTimeOut;
-
-import util.HibernateUtil;
+import com.nguyentuan.util.HibernateUtil;
 
 @Repository
 public class UserTimeOutDaoImpl extends AbstractDaoImpl<Integer, UserTimeOut> implements UserTimeOutDao {

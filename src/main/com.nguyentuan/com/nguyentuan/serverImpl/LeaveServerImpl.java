@@ -14,7 +14,7 @@ import com.nguyentuan.serverlogic.LeaveServer;
 @Service
 public class LeaveServerImpl extends AbstractDaoImpl<Integer,LeavetypeEntity> implements LeaveServer   {
 	@Autowired
-	LeaveDaoImpl leaveDaoImpl = new LeaveDaoImpl();
+	LeaveDaoImpl leaveDaoImpl ;
 	@Override
 	public List<DepartmentEntity> findAll() {
 		// TODO Auto-generated method stub

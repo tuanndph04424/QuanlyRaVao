@@ -11,8 +11,7 @@ import com.nguyentuan.daologic.UserRolesDao;
 import com.nguyentuan.data.AbstractDaoImpl;
 import com.nguyentuan.entity.DepartmentEntity;
 import com.nguyentuan.entity.UserRolesEntity;
-
-import util.HibernateUtil;
+import com.nguyentuan.util.HibernateUtil;
 
 @Repository
 

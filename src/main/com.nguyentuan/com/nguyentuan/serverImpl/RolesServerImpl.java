@@ -16,7 +16,7 @@ import com.nguyentuan.serverlogic.RolesServer;
 public class RolesServerImpl extends AbstractDaoImpl<Integer, RolesEntity> implements RolesServer {
 
 	@Autowired
-	RolesDaoImpl  rolesDao = new RolesDaoImpl();
+	RolesDaoImpl  rolesDao ;
 	
 	@Override
 	public List<RolesEntity> findAll() {

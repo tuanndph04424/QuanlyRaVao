@@ -11,8 +11,7 @@ import com.nguyentuan.daologic.LeaveDao;
 import com.nguyentuan.data.AbstractDaoImpl;
 import com.nguyentuan.entity.DepartmentEntity;
 import com.nguyentuan.entity.LeavetypeEntity;
-
-import util.HibernateUtil;
+import com.nguyentuan.util.HibernateUtil;
 @Repository
 public class LeaveDaoImpl extends AbstractDaoImpl<Integer, LeavetypeEntity> implements LeaveDao {
 

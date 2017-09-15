@@ -16,7 +16,7 @@ import com.nguyentuan.serverlogic.UserServer;
 public class UserServerIpml extends AbstractDaoImpl<Integer, UserEntity> implements UserServer {
 
 	@Autowired
-	UserDaoImpl userDaoIml= new UserDaoImpl();
+	UserDaoImpl userDaoIml;
 
 	@Override
 	public List<UserEntity> login(String username, String pass) {

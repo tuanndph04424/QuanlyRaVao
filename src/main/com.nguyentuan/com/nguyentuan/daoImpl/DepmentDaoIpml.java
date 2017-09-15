@@ -10,8 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.nguyentuan.daologic.DepartmentDao;
 import com.nguyentuan.data.AbstractDaoImpl;
 import com.nguyentuan.entity.DepartmentEntity;
-
-import util.HibernateUtil;
+import com.nguyentuan.util.HibernateUtil;
 
 @Repository
 

@@ -16,7 +16,7 @@ import com.nguyentuan.serverlogic.UserTimeOutServer;
 @Transactional
 public class UserTimeOutServerImpl extends AbstractDaoImpl<Integer, UserTimeOut> implements UserTimeOutServer {
 	@Autowired
-	UserTimeOutDaoImpl userTimeOutDaoImpl = new UserTimeOutDaoImpl();
+	UserTimeOutDaoImpl userTimeOutDaoImpl;
 
 	@Override
 	public UserTimeOut saveAddTimeOut(UserTimeOut userTimeOut) {

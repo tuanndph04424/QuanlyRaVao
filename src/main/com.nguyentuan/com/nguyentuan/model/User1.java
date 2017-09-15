@@ -1,4 +1,4 @@
-package model;
+package com.nguyentuan.model;
 
 public class User1 {
 	private Integer id;

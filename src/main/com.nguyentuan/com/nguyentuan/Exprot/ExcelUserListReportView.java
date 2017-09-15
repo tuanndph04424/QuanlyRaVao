@@ -13,9 +13,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.web.servlet.view.document.AbstractXlsView;
 
 import com.nguyentuan.entity.UserTimeOut;
-
-
-import model.User1;
+import com.nguyentuan.model.User1;
 
 
 

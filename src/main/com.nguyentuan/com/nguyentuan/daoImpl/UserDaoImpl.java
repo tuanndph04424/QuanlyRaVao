@@ -14,8 +14,7 @@ import com.nguyentuan.data.AbstractDaoImpl;
 import com.nguyentuan.entity.DepartmentEntity;
 import com.nguyentuan.entity.RolesEntity;
 import com.nguyentuan.entity.UserEntity;
-
-import util.HibernateUtil;
+import com.nguyentuan.util.HibernateUtil;
 
 @Repository
 public class UserDaoImpl extends AbstractDaoImpl<Integer, UserEntity> implements UserDao {

@@ -7,13 +7,13 @@ import java.util.List;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
 
 import com.nguyentuan.daologic.UserFcRolesDao;
 import com.nguyentuan.data.AbstractDaoImpl;
 import com.nguyentuan.entity.UserfcRolesEntity;
-
-import util.HibernateUtil;
-
+import com.nguyentuan.util.HibernateUtil;
+@Repository
 public class UserFcRolesDaoImpl extends AbstractDaoImpl<Integer, UserfcRolesEntity> implements UserFcRolesDao {
 
 	@Override

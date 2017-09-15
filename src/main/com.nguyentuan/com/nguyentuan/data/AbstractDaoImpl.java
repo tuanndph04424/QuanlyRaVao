@@ -16,8 +16,7 @@ import org.springframework.dao.DuplicateKeyException;
 
 import com.nguyentuan.entity.DepartmentEntity;
 import com.nguyentuan.entity.UserEntity;
-
-import util.HibernateUtil;
+import com.nguyentuan.util.HibernateUtil;
 
 public abstract class AbstractDaoImpl<ID extends Serializable, T> implements GenericDao<ID, T> {
 
@@ -41,9 +40,11 @@ public abstract class AbstractDaoImpl<ID extends Serializable, T> implements Gen
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		try {
+			transaction = session.beginTransaction();
 			session.persist(entity);
 
 			System.out.println("" + entity);
+			transaction.commit();
 			return entity;
 		} catch (RuntimeException e) {
 			throw e;
