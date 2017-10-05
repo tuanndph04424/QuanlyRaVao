@@ -58,7 +58,7 @@ public class HomeController {
 	LeaveServerImpl leaveServerImpl;
 	@Autowired
 	UserTimeOutServerImpl userTimeOutServerImpl;
-	
+
 	@Autowired
 	UserFcRolesServerImpl checkUserRolessss ;
 
@@ -180,10 +180,10 @@ public class HomeController {
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
 		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
 
-			modelMap.put("Userroles", new UserRolesEntity());
+			modelMap.put("Userroles", new UserfcRolesEntity());
 			modelMap.put("user", userServerIpml.findAll());
 			modelMap.put("roleslist", rolesserverImpl.findAll());
-			modelMap.put("listUserRoles", userRolesServerImpl.findAll());
+			modelMap.put("listUserRoles", checkUserRolessss.findAll());
 			URL = "userroles";
 		} else {
 			URL = "404";
@@ -192,14 +192,17 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/addUserRoles")
-	public String addUserRoles(@ModelAttribute(value = "Userroles") UserRolesEntity userRolesEntity,
+	public String addUserRoles(@ModelAttribute(value = "Userroles") UserfcRolesEntity userRolesEntity,
 			HttpSession httpSession, HttpServletRequest request) {
 
 		String URL = "";
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
 		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
-			userRolesServerImpl.save(userRolesEntity);
+			DepartmentEntity departmentEntity = new DepartmentEntity();
+			departmentEntity.setID(7);
+			userRolesEntity.setDeptID(departmentEntity);
+			checkUserRolessss.save(userRolesEntity);
 			URL = "redirect:/home/userroles";
 		} else {
 			URL = "404";
@@ -216,8 +219,8 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
 		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
-			modelMap.put("editUserRoles", userRolesServerImpl.findById(Integer.parseInt(id)));
-			modelMap.put("Userroles", new UserRolesEntity());
+			modelMap.put("editUserRoles", checkUserRolessss.findById(Integer.parseInt(id)));
+			modelMap.put("Userroles", new UserfcRolesEntity());
 			modelMap.put("roleslist", rolesserverImpl.findAll());
 			URL = "editUserRoles";
 		} else {
@@ -228,8 +231,11 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/updateUserRoles", method = RequestMethod.POST)
-	public String updateUserRoles(@ModelAttribute(value = "Userroles") UserRolesEntity rolesEntity) {
-		userRolesServerImpl.update(rolesEntity);
+	public String updateUserRoles(@ModelAttribute(value = "Userroles") UserfcRolesEntity rolesEntity) {
+		DepartmentEntity departmentEntity = new DepartmentEntity();
+		departmentEntity.setID(7);
+		rolesEntity.setDeptID(departmentEntity);
+		checkUserRolessss.update(rolesEntity);
 		return "redirect:/home/userroles";
 	}
 
@@ -241,7 +247,7 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		List<UserEntity> userEntity = (List<UserEntity>) session.getAttribute("udername");
 		if (checkUserRolessss.checkUserRolesManager(userEntity.get(0).getID(), 7) == true) {
-			userRolesServerImpl.delete(Integer.parseInt(id));
+			checkUserRolessss.delete(Integer.parseInt(id));
 			URL = "redirect:/home/userroles";
 		} else {
 			URL = "404";

@@ -26,17 +26,12 @@
 
 
 
-
 		<div class="row">
 			<h2 class="text-center">UserTimeOut</h2>
 		</div>
 
 		<div class="row">
-			<button class="btn btn-primary btn-xs" data-title="add"
-				data-toggle="modal" data-target="#add"
-				style="margin-left: 970px; margin-bottom: 10px; width: 150px">
-				<span>DownLoad</span>
-			</button>
+			
 			<div style="width: 1100px; margin-left: 20px">
 
 

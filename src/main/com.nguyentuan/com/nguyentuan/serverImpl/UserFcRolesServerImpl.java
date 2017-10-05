@@ -1,5 +1,7 @@
 package com.nguyentuan.serverImpl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,18 @@ public class UserFcRolesServerImpl extends AbstractDaoImpl<Integer, UserfcRolesE
 	public boolean checkUserRolesManager(int ID, int RolesID) {
 		// TODO Auto-generated method stub
 		return userfcRoles.checkUserRolesManager(ID, RolesID );
+	}
+
+	@Override
+	public List<UserfcRolesEntity> findAll() {
+		// TODO Auto-generated method stub
+		return userfcRoles.findAll();
+	}
+
+	@Override
+	public List<UserfcRolesEntity> findIdUserRoles(int id) {
+		// TODO Auto-generated method stub
+		return userfcRoles.findIdUserRoles(id);
 	}
 
 }

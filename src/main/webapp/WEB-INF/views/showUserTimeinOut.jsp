@@ -28,8 +28,7 @@
 				data-toggle="modal" data-target="#add"
 				style="margin-left: 970px; margin-bottom: 10px; width: 150px">
 			
-				<a href="/QuanLyRaVao/home/Exprot/?type=xls"><i
-							class="fa fa-circle-o"></i> DownLoad</a>
+				<a href="/QuanLyRaVao/home/Exprot/?type=xls"  style="color: white;" > DownLoad >> word </a>
 				
 				
 			</button>
@@ -37,8 +36,7 @@
 				data-toggle="modal" data-target="#add"
 				style="margin-left: 970px; margin-bottom: 10px; width: 150px">
 			
-				<a href="/QuanLyRaVao/home/Exprot/?type=pdf"><i
-							class="fa fa-circle-o"></i> DownLoad</a>
+				<a href="/QuanLyRaVao/home/Exprot/?type=pdf" style="color: white;"></i> DownLoad >> PDF</a>
 				
 				
 			</button>

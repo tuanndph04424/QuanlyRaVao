@@ -20,13 +20,13 @@
 
 
 		</c:if>
-		
+
 			<c:if test="${userTimeOutServerImpl.getStatus() == 2}">
-									<td>Manager Don't
-										<p style="color: red;">${item.getManagerApproval().getName()}</p>
-									</td>
-								</c:if>
-		
+				<td>Manager Don't
+					<p style="color: red;">${item.getManagerApproval().getName()}</p>
+				</td>
+			</c:if>
+
 		</p>
 
 
@@ -164,14 +164,16 @@ Ký Tên
 	<div
 		style="width: 140px; height: 100px; float: left; padding-top: 12px; border-right: 1px solid #DDDDDD; border-top: 1px solid #DDDDDD; border-left; border-bottom: 1px solid #DDDDDD; text-align: center;">
 
-		<c:if
-			test="${userTimeOutServerImpl.getManagerApprovalStatus() == 1}">
+	
+
+
+
+		<c:if test="${userTimeOutServerImpl.getManagerApprovalStatus() == 1}">
 Agree
-			<p style="color: red;">${userTimeOutServerImpl.getUserID().getName()}</p>
+			<p style="color: red;">${userTimeOutServerImpl.getManagerApproval().getName()}</p>
 
 		</c:if>
-			<c:if
-			test="${userTimeOutServerImpl.getManagerApprovalStatus() == 2 }">
+		<c:if test="${userTimeOutServerImpl.getManagerApprovalStatus() == 2 }">
 No accept
 			<p style="color: red;">${userTimeOutServerImpl.getUserID().getName()}</p>
 
@@ -180,18 +182,20 @@ No accept
 	<div
 		style="width: 145px; height: 100px; float: left; padding-top: 12px; border-right: 1px solid #DDDDDD; border-top: 1px solid #DDDDDD; border-left; text-align: center; border-bottom: 1px solid #DDDDDD;">
 
-		<c:if
-			test="${userTimeOutServerImpl.getDirectorApprovalStatus() == 1}">
+		<c:if test="${userTimeOutServerImpl.getDirectorApprovalStatus() == 1}">
 Agree
 			<p style="color: red;">${userTimeOutServerImpl.getUserID().getName()}</p>
 
 		</c:if>
-		<c:if
-			test="${userTimeOutServerImpl.getDirectorApprovalStatus() == 2}">
+		<c:if test="${userTimeOutServerImpl.getDirectorApprovalStatus() == 2}">
 No accept
-			<p style="color: red;">${userTimeOutServerImpl.getUserID().getName()}</p>
+			<p style="color: red;">${userTimeOutServerImpl.getDirectorApproval().getName()}</p>
 
 		</c:if>
+		
+	
+		
+		
 	</div>
 
 </div>
